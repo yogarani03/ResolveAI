@@ -1,0 +1,12 @@
+package com.resolveai.repository;
+
+import com.resolveai.entity.Complaint;
+import com.resolveai.entity.Feedback;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface FeedbackRepository extends JpaRepository<Feedback, Long> {
+    Optional<Feedback> findByComplaint(Complaint complaint);
+    boolean existsByComplaint(Complaint complaint);
+}
